@@ -71,3 +71,57 @@
   }
   dots.forEach((d, n) => d.addEventListener('click', () => { stop(); show((i = n)); start(); }));
 })();
+
+// Contact form. GitHub Pages cannot send mail, so Web3Forms delivers each
+// message to support@screvio.in. The access key is public by design: it can
+// only send to the address it was issued for.
+(() => {
+  const form = document.querySelector('[data-contact-form]');
+  if (!form) return;
+  const status = form.querySelector('[data-form-status]');
+  const button = form.querySelector('button[type="submit"]');
+  const FALLBACK = ' You can also email support@screvio.in.';
+
+  const say = (text, kind = '') => {
+    status.textContent = text;
+    status.className = 'form-status ' + kind;
+  };
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    // A person never sees the trap; only a bot ticks it.
+    if (data.get('botcheck')) return;
+    const key = form.dataset.accessKey || '';
+    if (!key || key.startsWith('YOUR_')) {
+      say('The form is not connected yet — please email support@screvio.in.', 'err');
+      return;
+    }
+    data.delete('botcheck');
+    data.append('access_key', key);
+    data.append('subject', `Screvio website: ${data.get('topic')} — ${data.get('name')}`);
+    data.append('from_name', 'Screvio website');
+
+    button.disabled = true;
+    say('Sending…');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      });
+      const out = await res.json().catch(() => ({}));
+      if (res.ok && out.success) {
+        form.reset();
+        say('Thank you! Your message has been sent — we will reply by email soon.', 'ok');
+      } else {
+        say((out.message || out.body?.message || 'Your message could not be sent.') + FALLBACK, 'err');
+      }
+    } catch {
+      say('Your message could not be sent right now.' + FALLBACK, 'err');
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
