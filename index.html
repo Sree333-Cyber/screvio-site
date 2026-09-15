@@ -3,69 +3,433 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Screvio — record once, turn it into demos and guides</title>
-  <meta name="description" content="Screvio records browser activity as video plus the real clicks behind it, so a session becomes a demo video or a step-by-step guide without recording again.">
+  <title>Screvio — Record once. Get a demo video and a live guide.</title>
+  <meta name="description" content="Screvio records browser activity as video plus the real clicks behind it, so one recording becomes a polished demo video, documentation, and step-by-step guides that appear on your live app.">
+  <meta name="theme-color" content="#0b0f2a">
+  <link rel="icon" href="brand/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+  <link rel="preload" as="image" href="mascot/wave.webp">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="site.js" defer></script>
 </head>
 <body>
-  <header class="top">
+  <header class="top dark">
     <div class="wrap">
       <a class="brand" href="/">
-        <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">
-          <defs>
-            <linearGradient id="sg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#25a5ff"/><stop offset=".52" stop-color="#4a55f0"/><stop offset="1" stop-color="#8b37f0"/>
-            </linearGradient>
-          </defs>
-          <path d="M43.5 17.5H29.5a8.5 8.5 0 0 0 0 17h5a8.5 8.5 0 0 1 0 17H20.5" fill="none" stroke="url(#sg)" stroke-width="11" stroke-linecap="round"/>
-          <path d="M47.5 25.9 54.4 21.8a1.8 1.8 0 0 1 2.6 1.6v17.2a1.8 1.8 0 0 1-2.6 1.6l-6.9-4.1z" fill="url(#sg)"/>
-        </svg>
-        Screvio
+        <img src="brand/screvio-mark.png" alt="" width="34" height="34">
+        <span>Scre<span class="vio">vio</span></span>
       </a>
       <nav>
-        <a href="/" aria-current="page">Home</a>
+        <a class="hide-sm" href="#features">Features</a>
+        <a class="hide-sm" href="#guides">Guides</a>
+        <a class="hide-sm" href="#use-cases">Use cases</a>
+        <a class="hide-sm" href="#faq">FAQ</a>
         <a href="privacy.html">Privacy</a>
-        <a href="mailto:support@screvio.in">Contact</a>
+        <a class="btn btn-primary" href="mailto:support@screvio.in">Contact us</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <h1>Record once. Turn it into a demo or a guide.</h1>
-    <p class="lede">
-      Screvio records what you do in the browser — screen video plus every real click, key press and
-      page change — on one timeline, so a session can be edited into a polished demo or published as a
-      step-by-step guide without recording it again.
-    </p>
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="glow"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i></i> Record · Edit · Guide</span>
+        <h1>Record your workflow once. <span class="grad-text">Get a demo and a live guide.</span></h1>
+        <p class="sub">
+          Screvio captures screen video together with every real click, key press and page change — so a single
+          recording becomes a polished demo video, step-by-step documentation, and guides that walk people through
+          your app, right on the page.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#how">See how it works
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#guides">Meet the guide</a>
+        </div>
+        <div class="trust">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chrome, Edge &amp; Firefox</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No re-recording to edit</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No analytics or tracking</span>
+        </div>
+      </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Screvio Recorder</h3>
-        <p>Browser extension. Records a tab, window, screen or region together with the actions behind it. Passwords and card fields are masked.</p>
-      </div>
-      <div class="card">
-        <h3>Screvio Studio</h3>
-        <p>Trim, zoom in on clicks, add voice-over and subtitles, and export MP4 or Word documents.</p>
-      </div>
-      <div class="card">
-        <h3>Screvio Player</h3>
-        <p>Browser extension. Shows your team's guides as highlighted steps on the web apps they already use. It records nothing.</p>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-bar"><i></i><i></i><i></i><div class="mock-url">yourapp.example.com/customers/new</div><span class="rec"><b></b>REC 00:42</span></div>
+        <div class="mock-body">
+          <div class="side"><div></div><div></div><div></div><div></div><div></div></div>
+          <div class="form">
+            <h4>New customer</h4>
+            <div class="field"><label>Company name</label><span>Acme Traders</span></div>
+            <div class="field"><label>Email</label><span><em class="typing">accounts@acme.example</em></span></div>
+            <span class="save">Save customer</span>
+          </div>
+          <div class="callout"><b>Step 3 of 5</b>Click <strong>Save customer</strong> to add them to your list.</div>
+          <svg class="cursor" viewBox="0 0 24 24"><path d="M4 2 20 12l-7 1.6L9.4 21z" fill="#0e1330" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <div class="launcher"><img src="mascot/wave.webp" alt="" width="54" height="56">Guides</div>
+        </div>
+        <div class="timeline">
+          <div class="track">
+            <i class="n" style="left:3%"></i><i class="c" style="left:14%"></i><i class="k" style="left:27%"></i><i class="k" style="left:36%"></i><i class="z" style="left:48%"></i><i class="c" style="left:59%"></i><i class="n" style="left:78%"></i><i class="c" style="left:90%"></i>
+            <div class="playhead"></div>
+          </div>
+          <div class="legend"><span style="--c:#25a5ff">Click</span><span style="--c:#8b37f0">Typing</span><span style="--c:#22c58b">Page change</span><span style="--c:#ffb547">Zoom</span></div>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="note">
-      <p>Recordings stay on your computer unless you export them or publish a guide to your organization's own Screvio server. No analytics, no ads, no tracking. <a href="privacy.html">Read the privacy policy</a>.</p>
-    </div>
+  <main>
+    <!-- ============ FEATURES ============ -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">One recording, everything you need</span>
+          <h2>Stop re-recording every time something changes</h2>
+          <p>Because Screvio knows exactly what was clicked and when, editing happens on the actions — not on pixels.</p>
+        </div>
+        <div class="grid-3">
+          <div class="feature reveal">
+            <div class="icon i-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 5 21l5-6 5 6-2-9 7-1Z"/></svg></div>
+            <h3>Real actions, not guesses</h3>
+            <p>Every click, key press and navigation is captured with the exact page element it touched, on the same clock as the video.</p>
+          </div>
+          <div class="feature reveal" style="--d:80ms">
+            <div class="icon i-indigo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></div>
+            <h3>Automatic zoom &amp; highlights</h3>
+            <p>Zoom in on the button that matters and highlight each click automatically. Trim and adjust every step without touching the original.</p>
+          </div>
+          <div class="feature reveal" style="--d:160ms">
+            <div class="icon i-violet"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg></div>
+            <h3>Natural voice-over</h3>
+            <p>Turn each step's script into narration with natural-sounding neural voices in many languages — generated right in your browser.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="icon i-pink"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 13h4M13 13h4M7 16h8"/></svg></div>
+            <h3>Subtitles in sync</h3>
+            <p>Subtitles are built from your script and timed to the finished video, ready as .srt or .vtt files.</p>
+          </div>
+          <div class="feature reveal" style="--d:80ms">
+            <div class="icon i-amber"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></div>
+            <h3>Export anywhere</h3>
+            <p>MP4 video, Word documents with a screenshot and instructions per step, and test-case spreadsheets — all from the same recording.</p>
+          </div>
+          <div class="feature reveal" style="--d:160ms">
+            <div class="icon i-green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>Sensitive fields masked</h3>
+            <p>Passwords, card numbers and one-time codes are masked before anything is stored — including the individual keys typed into them.</p>
+          </div>
+        </div>
+        <div class="modes reveal">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Browser tab</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="15" height="12" rx="2"/><rect x="7" y="8" width="15" height="12" rx="2"/></svg>App window</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Full screen</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/></svg>Selected region</span>
+        </div>
+      </div>
+    </section>
 
-    <h2>Support</h2>
-    <p>Questions or problems: <a href="mailto:support@screvio.in">support@screvio.in</a></p>
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">How it works</span>
+          <h2>From first click to finished demo in three steps</h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <h3>Record</h3>
+            <p>Press record in the Screvio Recorder extension and do the task as you normally would — in a tab, a window, your screen or a region.</p>
+          </div>
+          <div class="step reveal" style="--d:120ms">
+            <div class="num">2</div>
+            <h3>Edit in Studio</h3>
+            <p>Open the recording in Screvio Studio. Every step is already listed: add zooms, highlights, narration and subtitles.</p>
+          </div>
+          <div class="step reveal" style="--d:240ms">
+            <div class="num">3</div>
+            <h3>Share</h3>
+            <p>Export a video or document, or publish a guide your team follows step by step inside the real application.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">The Screvio family</span>
+          <h2>Four tools, one timeline</h2>
+          <p>Capture, polish, publish and guide — each built for the people who use it.</p>
+        </div>
+        <div class="grid-4">
+          <div class="product p-blue reveal">
+            <span class="tag">Browser extension</span>
+            <h3>Screvio Recorder</h3>
+            <p>For the people who know the process.</p>
+            <ul>
+              <li>Tab, window, screen or region capture</li>
+              <li>Clicks, typing and navigation with page context</li>
+              <li>Save recordings as MP4 in one click</li>
+              <li>Publish a recording as a guide</li>
+            </ul>
+          </div>
+          <div class="product p-indigo reveal" style="--d:80ms">
+            <span class="tag">Web app</span>
+            <h3>Screvio Studio</h3>
+            <p>For turning recordings into content.</p>
+            <ul>
+              <li>Trim, zoom and click highlights</li>
+              <li>Neural voice-over and subtitles</li>
+              <li>MP4, Word and spreadsheet export</li>
+              <li>Edit guide wording, order and languages</li>
+            </ul>
+          </div>
+          <div class="product p-violet reveal" style="--d:160ms">
+            <span class="tag">Browser extension</span>
+            <h3>Screvio Player</h3>
+            <p>For the people learning the process.</p>
+            <ul>
+              <li>Guides shown on the pages you already use</li>
+              <li>Offers the right guide when an error appears</li>
+              <li>Search guides in plain words</li>
+              <li>Records nothing — no screen or activity capture</li>
+            </ul>
+          </div>
+          <div class="product p-pink reveal" style="--d:240ms">
+            <span class="tag">Shared library</span>
+            <h3>Screvio Guides</h3>
+            <p>For keeping everyone on the same steps.</p>
+            <ul>
+              <li>One section per error, each a complete fix</li>
+              <li>Multiple languages, with spoken instructions</li>
+              <li>Access tokens for your customers</li>
+              <li>Update or unpublish once — everyone follows</li>
+            </ul>
+            <a class="more" href="#guides">See Screvio Guides →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GUIDES SPOTLIGHT ============ -->
+    <section class="spotlight" id="guides">
+      <div class="wrap">
+        <div class="split">
+          <div class="reveal">
+            <span class="kicker">Screvio Guides</span>
+            <h2>A friendly guide, right where people get stuck</h2>
+            <p class="lead">Publish a recording as a guide and the Screvio guide appears on your team's own live application — pointing at the exact button, one step at a time. No video to scrub through, no documents to hunt for.</p>
+            <ul class="checks">
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Triggered by errors.</b> When a known error message appears, the right fix is offered straight away.</span></li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Step by step, on the page.</b> Each step highlights the exact button or field, with an optional spoken instruction.</span></li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>One shared library.</b> Edit a guide once and everyone gets the new version.</span></li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Send to support.</b> Still stuck? Send a picture of the screen to your support team — only when you choose to.</span></li>
+            </ul>
+          </div>
+
+          <div class="scene reveal" style="--d:120ms" data-guide-scene>
+            <div class="scene-app">
+              <div class="app-top"><b>Invoices</b> · INV-2041</div>
+              <div class="tabs"><span>Details</span><span>Lines</span><span class="hl">Tax settings</span><span>History</span></div>
+              <div class="alert" data-alert role="status">
+                <svg class="bad" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+                <svg class="ok" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Invoice could not be posted: tax code missing</span>
+              </div>
+              <div class="offer">
+                <small>Screvio guide</small>
+                <strong>Fix a missing tax code</strong>
+                <div class="bar"><i data-progress style="width:0%"></i></div>
+                <div class="row"><span data-status>Guide available · 5 steps</span><span class="go" data-button>Start</span></div>
+              </div>
+              <div class="dots" aria-label="Guide steps">
+                <button data-dot aria-label="Step 1"></button><button data-dot aria-label="Step 2"></button><button data-dot aria-label="Step 3"></button><button data-dot aria-label="Step 4"></button>
+              </div>
+            </div>
+            <div class="say pop" data-say aria-live="polite">Hi! That error has a known fix. Want me to show you?</div>
+            <div class="bot-wrap" aria-hidden="true">
+              <div class="bot">
+                <img data-pose="idle" src="mascot/idle.webp" alt="" width="172" height="200">
+                <img data-pose="wave" class="on" src="mascot/wave.webp" alt="" width="200" height="200">
+                <img data-pose="point" src="mascot/point.webp" alt="" width="200" height="200">
+                <img data-pose="happy" src="mascot/happy.webp" alt="" width="200" height="200">
+              </div>
+              <div class="bot-shadow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="detail reveal">
+            <div class="mini i-pink"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></div>
+            <h3>A section per error</h3>
+            <p>One guide covers several error messages and plays only the fixes that apply to the screen.</p>
+          </div>
+          <div class="detail reveal" style="--d:60ms">
+            <div class="mini i-amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3>Waits for the page</h3>
+            <p>Steps can wait for text to appear, or for a menu that opens when you hover over it.</p>
+          </div>
+          <div class="detail reveal" style="--d:120ms">
+            <div class="mini i-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 9a9 9 0 0 1-9 9"/></svg></div>
+            <h3>Smart branches</h3>
+            <p>Go back and retry when an error shows up, or move on as soon as the page changes.</p>
+          </div>
+          <div class="detail reveal" style="--d:180ms">
+            <div class="mini i-violet"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14M9 4v4M7 20l5-12 5 12M9 16h6"/></svg></div>
+            <h3>Many languages</h3>
+            <p>Translate the step text for each language; anything not translated falls back to the default.</p>
+          </div>
+          <div class="detail reveal">
+            <div class="mini i-indigo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5ZM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></div>
+            <h3>Spoken instructions</h3>
+            <p>Generate a voice clip for each step with the same voices as video narration, or upload your own.</p>
+          </div>
+          <div class="detail reveal" style="--d:60ms">
+            <div class="mini i-green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <h3>Search in plain words</h3>
+            <p>People type what they are trying to do and find the guide by its title, keywords or error text.</p>
+          </div>
+          <div class="detail reveal" style="--d:120ms">
+            <div class="mini i-amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 9-9M17 6l3 3M14 9l2 2"/></svg></div>
+            <h3>Customer access</h3>
+            <p>Give a customer a token that plays one project's published guides — and nothing else.</p>
+          </div>
+          <div class="detail reveal" style="--d:180ms">
+            <div class="mini i-pink"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></div>
+            <h3>Versions built in</h3>
+            <p>Every save is a new version. Unpublish a guide and every extension drops it on its next update.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ USE CASES ============ -->
+    <section id="use-cases">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Built for every team</span>
+          <h2>Wherever someone has to show someone else how</h2>
+        </div>
+        <div class="grid-3">
+          <div class="usecase reveal">
+            <div class="icon i-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+            <div><h3>Training &amp; onboarding</h3><p>New starters learn real processes on the real application, at their own pace.</p></div>
+          </div>
+          <div class="usecase reveal" style="--d:80ms">
+            <div class="icon i-pink"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3ZM3 19a2 2 0 0 0 2 2h1v-6H3Z"/></svg></div>
+            <div><h3>Customer support</h3><p>Error-triggered guides answer the common tickets before they are raised.</p></div>
+          </div>
+          <div class="usecase reveal" style="--d:160ms">
+            <div class="icon i-violet"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="m17 10 5-3v10l-5-3"/></svg></div>
+            <div><h3>Product demos</h3><p>Polished, narrated walkthroughs for sales, marketing and release notes.</p></div>
+          </div>
+          <div class="usecase reveal">
+            <div class="icon i-green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div>
+            <div><h3>QA &amp; testing</h3><p>Exact reproduction steps and test-case spreadsheets straight from a recording.</p></div>
+          </div>
+          <div class="usecase reveal" style="--d:80ms">
+            <div class="icon i-amber"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div>
+            <div><h3>Process documentation</h3><p>Word documents with a screenshot and instruction for every step, in minutes.</p></div>
+          </div>
+          <div class="usecase reveal" style="--d:160ms">
+            <div class="icon i-indigo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+            <div><h3>Software rollouts</h3><p>When screens change, guide people through the new way right inside the app.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY ============ -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="privacy-band reveal">
+          <div class="shield"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div>
+            <h2>Private by design</h2>
+            <p>Recordings stay on your computer until you export them or publish a guide to your organization's own Screvio server. Nothing is recorded when you are not recording.</p>
+            <div class="pills"><span>No analytics</span><span>No ads</span><span>No tracking</span><span>Data never sold</span><span>Secure https connections</span></div>
+            <a href="privacy.html">Read the privacy policy →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="how" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Questions</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq reveal">
+          <details open>
+            <summary>Are my recordings uploaded anywhere?</summary>
+            <p>No. Recordings are stored in your own browser. They only leave your computer when you export a file yourself, or publish a guide to your organization's Screvio server.</p>
+          </details>
+          <details>
+            <summary>Do I need a server to use Screvio?</summary>
+            <p>Recording, editing and exporting videos work without one. Sharing guides across a team uses a Screvio server run by your organization, so everyone sees the same library.</p>
+          </details>
+          <details>
+            <summary>Which browsers are supported?</summary>
+            <p>Screvio Recorder and Screvio Player are available for Google Chrome, Microsoft Edge and Mozilla Firefox.</p>
+          </details>
+          <details>
+            <summary>Can I change a video without recording it again?</summary>
+            <p>Yes. Trim, zoom, click highlights, narration and subtitles are all edits laid over the original recording, which is always kept unchanged.</p>
+          </details>
+          <details>
+            <summary>Does Screvio Player record my screen?</summary>
+            <p>No. The Player only shows guides. It has no screen-recording or activity-capture ability at all, and asks for far fewer browser permissions than the Recorder.</p>
+          </details>
+          <details>
+            <summary>What can I export?</summary>
+            <p>MP4 video, subtitle files (.srt and .vtt), Word documents with a screenshot per step, test-case spreadsheets, and the original recording.</p>
+          </details>
+          <details>
+            <summary>How do I get Screvio for my team?</summary>
+            <p>Write to <a href="mailto:support@screvio.in">support@screvio.in</a> and tell us what you would like to use it for — we'll help you get set up.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section>
+      <div class="wrap">
+        <div class="cta with-bot reveal">
+          <div>
+            <h2>Bring Screvio to your team</h2>
+            <p>Tell us how your team trains people, documents processes or supports customers — we'll help you get started.</p>
+            <a class="btn btn-light" href="mailto:support@screvio.in">support@screvio.in</a>
+          </div>
+          <img class="cta-bot" src="mascot/happy.webp" alt="The Screvio guide robot cheering" width="200" height="200" loading="lazy">
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Screvio</span>
-      <a href="privacy.html">Privacy policy</a>
-      <a href="mailto:support@screvio.in">support@screvio.in</a>
+      <a class="brand" href="/">
+        <img src="brand/screvio-mark.png" alt="" width="30" height="30">
+        <span>Scre<span class="vio">vio</span></span>
+      </a>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#guides">Guides</a>
+        <a href="#use-cases">Use cases</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="mailto:support@screvio.in">support@screvio.in</a>
+      </div>
+      <div class="copy">© 2026 Screvio. All rights reserved.</div>
     </div>
   </footer>
 </body>
