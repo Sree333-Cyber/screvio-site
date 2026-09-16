@@ -72,14 +72,15 @@
   dots.forEach((d, n) => d.addEventListener('click', () => { stop(); show((i = n)); start(); }));
 })();
 
-// Contact form. GitHub Pages cannot send mail, so Web3Forms delivers each
-// message to support@screvio.in. The access key is public by design: it can
-// only send to the address it was issued for.
+// Contact form. Messages go to Screvio's own server and are read by admins
+// in Screvio Studio (Settings → Messages); no third-party form service sees
+// them. The server only accepts this from screvio.in, and limits how often.
 (() => {
   const form = document.querySelector('[data-contact-form]');
   if (!form) return;
   const status = form.querySelector('[data-form-status]');
   const button = form.querySelector('button[type="submit"]');
+  const ENDPOINT = form.dataset.endpoint || 'https://studio.screvio.in/api/contact';
   const FALLBACK = ' You can also email support@screvio.in.';
 
   const say = (text, kind = '') => {
@@ -90,33 +91,24 @@
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
-    const data = new FormData(form);
+    const data = Object.fromEntries(new FormData(form));
     // A person never sees the trap; only a bot ticks it.
-    if (data.get('botcheck')) return;
-    const key = form.dataset.accessKey || '';
-    if (!key || key.startsWith('YOUR_')) {
-      say('The form is not connected yet — please email support@screvio.in.', 'err');
-      return;
-    }
-    data.delete('botcheck');
-    data.append('access_key', key);
-    data.append('subject', `Screvio website: ${data.get('topic')} — ${data.get('name')}`);
-    data.append('from_name', 'Screvio website');
+    if (data.botcheck) return;
 
     button.disabled = true;
     say('Sending…');
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch(ENDPOINT, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
       const out = await res.json().catch(() => ({}));
-      if (res.ok && out.success) {
+      if (res.ok && out.ok) {
         form.reset();
         say('Thank you! Your message has been sent — we will reply by email soon.', 'ok');
       } else {
-        say((out.message || out.body?.message || 'Your message could not be sent.') + FALLBACK, 'err');
+        say((out.error || 'Your message could not be sent.') + FALLBACK, 'err');
       }
     } catch {
       say('Your message could not be sent right now.' + FALLBACK, 'err');
