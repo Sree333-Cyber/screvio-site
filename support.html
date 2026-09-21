@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Screvio</title>
+  <meta name="description" content="Help with the Screvio Recorder and Screvio Player browser extensions and with Screvio Studio.">
+  <link rel="icon" href="brand/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <img src="brand/screvio-mark.png" alt="" width="34" height="34">
+        <span>Scre<span class="vio">vio</span></span>
+      </a>
+      <nav>
+        <a class="hide-sm" href="/">Home</a>
+        <a class="hide-sm" href="/#features">Features</a>
+        <a class="hide-sm" href="support.html" aria-current="page">Support</a>
+        <a class="hide-sm" href="privacy.html">Privacy</a>
+        <a href="https://studio.screvio.in">Log in</a>
+        <a class="btn btn-primary" href="/#contact">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap narrow">
+      <span class="kicker">Screvio Recorder &amp; Screvio Player</span>
+      <h1>Support</h1>
+      <p>Help with the extensions and with Screvio Studio.</p>
+    </div>
+  </div>
+
+  <main class="wrap narrow doc">
+
+    <div class="note">
+      <p><strong>Email <a href="mailto:support@screvio.in">support@screvio.in</a></strong>, or use the
+      <a href="/#contact">contact form</a>. One person answers, so please allow a couple of days for a reply.</p>
+    </div>
+
+    <h2>1. What to tell us</h2>
+    <p>Most questions are answered faster when the first message already says:</p>
+    <ul>
+      <li>Your browser and its version, and whether the problem is in <strong>Screvio Recorder</strong>,
+      <strong>Screvio Player</strong> or <strong>Screvio Studio</strong>.</li>
+      <li>The extension's version number — open <code>chrome://extensions</code> and read it under the item's name.</li>
+      <li>What you captured: a tab, a window, the whole screen, or a region. These take different paths
+      through the code and go wrong in different ways, so it is usually the first thing we need to know.</li>
+      <li>What you expected to happen, and what happened instead.</li>
+    </ul>
+
+    <h2>2. Send to support</h2>
+    <p>
+      Both extensions have a <strong>Send to support</strong> button in their popup. It takes a picture of
+      the visible tab and sends it to the Screvio server you are connected to, which emails it on to
+      whoever runs that server. Nothing is sent until you confirm, and everything on screen at that moment
+      appears in the picture — close anything you would rather not share before you use it.
+    </p>
+
+    <h2>3. Where your recordings are</h2>
+    <p>
+      Recordings stay in your own browser. Nothing is uploaded unless you export a <code>.screvio</code>
+      file yourself or publish a guide to a server you configured. The <a href="privacy.html">privacy
+      policy</a> sets out exactly what leaves your computer, and when.
+    </p>
+
+    <h2>4. Losing recordings</h2>
+    <p>
+      Screvio Studio keeps your work in the browser's own storage, under the exact address you opened it
+      at. Opening it at a different address — a different port, or a machine name instead of an IP — gives
+      you a different, empty library. Nothing has been deleted; go back to the address you recorded at and
+      the recordings are there. Clearing the browser's site data for that address <em>does</em> delete
+      them, and there is no copy on a server to restore from unless you exported one.
+    </p>
+
+    <h2>5. Narration and voices</h2>
+    <p>
+      Voices run on your own machine, which needs the page to be served over <code>https://</code>. Over
+      plain <code>http://</code> on a network address the browser withholds what the voice engine needs and
+      narration fails with a message about a missing file that is not actually missing. If you self-host,
+      serve Studio over HTTPS; on <a href="https://studio.screvio.in">studio.screvio.in</a> this is already
+      the case.
+    </p>
+
+    <h2>6. Reporting a security problem</h2>
+    <p>
+      Write to <a href="mailto:support@screvio.in">support@screvio.in</a> with "security" in the subject.
+      Please give us a reasonable chance to fix the issue before publishing it.
+    </p>
+
+    <h2>7. Contact</h2>
+    <p>
+      SREEKUTTAN A R, operating Screvio<br>
+      Email: <a href="mailto:support@screvio.in">support@screvio.in</a><br>
+      Website: <a href="https://screvio.in">screvio.in</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <img src="brand/screvio-mark.png" alt="" width="30" height="30">
+        <span>Scre<span class="vio">vio</span></span>
+      </a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/#features">Features</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="mailto:support@screvio.in">support@screvio.in</a>
+      </div>
+      <div class="copy">© 2026 Screvio. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
