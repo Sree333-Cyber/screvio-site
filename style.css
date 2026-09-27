@@ -151,11 +151,21 @@ h2 { font-size: clamp(28px, 3.8vw, 42px); line-height: 1.15; letter-spacing: -.0
 .p-indigo { --accent: linear-gradient(90deg, #6470ff, #4a55f0); --accent-soft: #e9ebff; --accent-ink: #3b45d6; }
 .p-violet { --accent: linear-gradient(90deg, #a55bff, #8b37f0); --accent-soft: #f2e8ff; --accent-ink: #7427d6; }
 .p-pink { --accent: linear-gradient(90deg, #ff6aa8, #f0458b); --accent-soft: #ffe8f1; --accent-ink: #c8246a; }
+.p-amber { --accent: linear-gradient(90deg, #ffc76b, #ff9a3c); --accent-soft: #fff1e0; --accent-ink: #b85e00; }
+/* Five products: three across, then two wider ones, so no card is squeezed. */
+.grid-5 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+.grid-5 > * { grid-column: span 2; }
+.grid-5 > :nth-child(n+4) { grid-column: span 3; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .product .more { display: inline-block; margin-top: 14px; font-weight: 650; font-size: 15px; color: var(--accent-ink); text-decoration: none; }
 .spotlight, #features, #how { scroll-margin-top: 20px; }
-@media (max-width: 1100px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 680px) { .grid-4 { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .grid-5 { grid-template-columns: 1fr 1fr; }
+  .grid-5 > *, .grid-5 > :nth-child(n+4) { grid-column: auto; }
+  .grid-5 > :last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 680px) { .grid-4, .grid-5 { grid-template-columns: 1fr; } }
 
 /* spotlight */
 .spotlight { background: var(--night); color: #fff; position: relative; overflow: hidden; }
